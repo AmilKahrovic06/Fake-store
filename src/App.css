@@ -1,38 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  background-color: #f2f3f7;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 15px;
+}
+.Amil {
+  color: rgb(255, 145, 0);
+  font-size: larger;
+}
+.Express {
+  color: red;
+  font-size: larger;
+}
+.Company {
+  font-size: x-small;
+  color: red;
+  position: relative;
+  bottom: 14px;
+  right: 3px;
+}
+.ShoppingCart {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ProductCard {
+  width: calc(25% - 20px);
+  height: min-content;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.ProductCard:hover {
+  background-color: #d8d8d8;
+  width: +25%;
+  height: +25%;
+  cursor: pointer;
+}
+
+.ProductCard img {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.ProductCard h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ProductCard p {
+  font-size: 25px;
+  color: red;
+  font-weight: 700;
+}
+
+.ProductCard button {
+  margin: 30px;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(255, 0, 0);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: transparent;
+  color: black;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.ProductCard button:hover {
+  background: rgb(255, 0, 0);
+  box-shadow: 0 0 30px 5px rgb(255, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  cursor: pointer;
+}
+.ProductCard:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+.ProductCard button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.ProductCard button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.product-details h2 {
+  margin-top: 35px;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.product-details p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.product-details .price {
+  font-size: 28px;
+  color: #ff0000;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.product-details .description {
+  margin-top: 20px;
+}
+
+.product-details .description p {
+  line-height: 1.5;
+}
+
+.product-details button {
+  display: inline-block;
+  background-color: red;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 40px;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+.product-details button:hover {
+  background: rgb(255, 0, 0);
+  box-shadow: 0 0 30px 5px rgb(255, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.product-details button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-details button:hover {
+  background-color: rgb(189, 0, 0);
+  padding: 20px 40px 20px 40px;
+}
+.product-details img {
+  width: 30%;
+  height: 30%;
+}
+.product-details .star {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 24px;
+  left: 55px;
 }
