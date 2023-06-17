@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import star from "./star.png";
 
+import CircularProgress from "@mui/material/CircularProgress";
+
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
 
@@ -24,7 +26,15 @@ const ProductDetails = () => {
   }, []);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <CircularProgress
+          sx={{
+            color: "red",
+          }}
+        />
+      </div>
+    );
   }
 
   return (
