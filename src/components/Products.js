@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Search from "./Search.js";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleProduct = (query) => {
+    setSearchQuery(query);
+  };
 
   useEffect(() => {
     fetchProducts();
@@ -21,9 +27,14 @@ const Products = () => {
     window.location.href = `/products/${productId}`;
   };
 
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="Products">
-      {products.map((product) => (
+      <Search handleSearch={handleProduct} />
+      {filteredProducts.map((product) => (
         <div className="ProductCard" key={product.id}>
           <img src={product.image} alt={product.title} />
           <h3>{product.title}</h3>
