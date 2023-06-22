@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav.js";
 
+import ReactQuery from "./components/Query/query.js";
+
 import Products from "./components/Products.js";
 import Electronics from "./pages/Electronics";
 import Jewerly from "./pages/Jewerly";
 import MensClothing from "./pages/MensClothing";
 import ProductDetails from "./components/ProductDetails";
-
 import WomensClothing from "./pages/WomensClothing";
 import Footer from "./components/Footer/Footer.js";
 import "./App.css";
@@ -17,6 +18,7 @@ const App = () => {
     <Router>
       <div className="App">
         <Nav />
+        <ReactQuery />
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/electronics" element={<Electronics />} />
