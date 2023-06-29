@@ -1,30 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav.js";
-
+import Search from "./components/Search.js";
 import ReactQuery from "./components/Query/query.js";
 
-import Products from "./components/Products.js";
-import Electronics from "./pages/Electronics";
-import Jewerly from "./pages/Jewerly";
-import MensClothing from "./pages/MensClothing";
+// import Products from "./components/Products.js";
+import Electronics from "./components/Electronics.js";
+import Jewelery from "./components/Jewelery.js";
+import MensClothing from "./components/MensClothing";
 import ProductDetails from "./components/ProductDetails";
-import WomensClothing from "./pages/WomensClothing";
+import WomensClothing from "./components/WomensClothing";
 import Footer from "./components/Footer/Footer.js";
 import "./App.css";
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (search) => {
+    setSearchTerm(search);
+  };
+
   return (
     <Router>
       <div className="App">
         <Nav />
-        <ReactQuery />
+        <Search handleSearch={handleSearch} />
         <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/electronics" element={<Electronics />} />
-          <Route path="/jewelery" element={<Jewerly />} />
-          <Route path="/mens-clothing" element={<MensClothing />} />
-          <Route path="/womens-clothing" element={<WomensClothing />} />
+          <Route path="/" element={<ReactQuery searchTerm={searchTerm} />} />
+          <Route
+            path="/electronics"
+            element={<Electronics searchTerm={searchTerm} />}
+          />
+          <Route
+            path="/jewelery"
+            element={<Jewelery searchTerm={searchTerm} />}
+          />
+          <Route
+            path="/mens-clothing"
+            element={<MensClothing searchTerm={searchTerm} />}
+          />
+          <Route
+            path="/womens-clothing"
+            element={<WomensClothing searchTerm={searchTerm} />}
+          />
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
         <Footer />

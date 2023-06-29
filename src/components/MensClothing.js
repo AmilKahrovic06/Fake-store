@@ -1,15 +1,16 @@
 import axios from "axios";
-import { React, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 
-import "./query.css";
 const fetchData = async () => {
-  const response = await axios.get("https://fakestoreapi.com/products");
+  const response = await axios.get(
+    "https://fakestoreapi.com/products/category/men's clothing"
+  );
   const data = response.data;
   return data;
 };
 
-const ReactQuery = ({ searchTerm }) => {
+const MensClothing = ({ searchTerm }) => {
   const handleProductDetails = (productId) => {
     window.location.href = `/products/${productId}`;
   };
@@ -33,7 +34,7 @@ const ReactQuery = ({ searchTerm }) => {
       <ul className="ListOfProducts">
         {filteredData.map((product) => (
           <div className="ProductCard" key={product.id}>
-            <li key={product.id}>
+            <li>
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
               <p>{product.price} $</p>
@@ -48,4 +49,4 @@ const ReactQuery = ({ searchTerm }) => {
   );
 };
 
-export default ReactQuery;
+export default MensClothing;
