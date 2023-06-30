@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
 
-const Jewelery = () => {
-  const [products, setProducts] = useState([]);
+// const Jewelery = () => {
+//   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://fakestoreapi.com/products/category/jewelery"
-        );
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchProducts = async () => {
+//       try {
+//         const response = await axios.get(
+//           "https://fakestoreapi.com/products/category/jewelery"
+//         );
+//         setProducts(response.data);
+//       } catch (error) {
+//         console.error("Error fetching products:", error);
+//       }
+//     };
 
-    fetchProducts();
-  }, []);
+//     fetchProducts();
+//   }, []);
 
-  const handleSeeMore = (productId) => {
-    window.location.href = `/products/${productId}`;
-  };
+//   const handleSeeMore = (productId) => {
+//     window.location.href = `/products/${productId}`;
+//   };
 
-  return (
-    <div className="Products">
-      {products.map((product) => (
-        <div key={product.id} className="ProductCard">
-          <img src={product.image} alt={product.title} />
-          <h3>{product.title}</h3>
-          <p>{product.price}$</p>
-          <button onClick={() => handleSeeMore(product.id)}>See More</button>
-        </div>
-      ))}
-    </div>
-  );
-};
+//   return (
+//     <div className="Products">
+//       {products.map((product) => (
+//         <div key={product.id} className="ProductCard">
+//           <img src={product.image} alt={product.title} />
+//           <h3>{product.title}</h3>
+//           <p>{product.price}$</p>
+//           <button onClick={() => handleSeeMore(product.id)}>See More</button>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
-export default Jewelery;
+// export default Jewelery;
